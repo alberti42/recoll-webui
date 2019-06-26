@@ -211,6 +211,10 @@ def recoll_search(q, dosnippets=True):
             doc = query.fetchone()
         except:
             break
+
+        if doc is None:
+            break
+
         d = {}
         for f in FIELDS:
             v = getattr(doc, f)
